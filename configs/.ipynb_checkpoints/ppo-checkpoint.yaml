@@ -1,0 +1,152 @@
+# PPO训练配置 - 基于CMDM的第二阶段训练
+# 继承原有配置
+defaults:
+  - model: cmdm
+  - task: text_to_motion_contact_motion_gen
+  - _self_
+
+# 覆盖一些基础配置
+project: "AffordMotion-PPO-Stage2"
+platform: "file"  # "wandb" or "tensorboard" or "file"
+seed: 42
+gpu: 0
+
+# PPO专用配置
+ppo:
+  # 预训练AMDM路径
+  pretrained_amdm_path: "./outputs/CMDM-Enc-H3D-mixtrain0.5/ckpt/model600000.pt"
+  
+  # 训练参数
+  num_epochs: 100
+  batch_size: 2  # PPO的batch size (比原始训练小)
+  num_workers: 4
+  
+  # PPO核心超参数
+  rollout_steps: 8  # 每个场景rollout多少步
+  gamma: 0.99  # 折扣因子
+  gae_lambda: 0.95  # GAE的lambda
+  clip_epsilon: 0.2  # PPO clip参数
+  value_coef: 0.5  # value loss权重
+  entropy_coef: 0.01  # entropy bonus
+  max_grad_norm: 0.5  # 梯度裁剪
+  ppo_epochs: 3  # 每次更新的轮数
+  minibatch_size: 4  # mini-batch大小
+  target_kl: 0.01  # KL散度阈值
+  
+  # 优化器配置
+  learning_rate: 3e-4
+  
+  # Motion参数 (要与model配置一致)
+  seq_len: 196  # 与dataset.max_horizon一致
+  motion_dim: 263  # 与model.input_feats一致
+  
+  # PPO策略网络架构
+  ppo_hidden_dim: 256
+  action_scale: 0.05  # action的缩放因子
+  
+  # 奖励配置
+  use_clip_reward: false  # 暂时关闭，先用简单奖励
+  use_physics_reward: false  # 暂时关闭
+  clip_model: "ViT-B/32"
+  
+  # 保存和日志
+  save_dir: "./outputs/PPO-CMDM-Stage2/ppo_checkpoints"
+  log_dir: "./outputs/PPO-CMDM-Stage2/ppo_logs"
+  save_interval: 10  # 每N个epoch保存一次
+  log_interval: 10  # 每N个batch打印一次
+
+# 覆盖部分dataset配置以适应PPO训练
+dataset:
+  name: 'ContactMotionHumanML3DDataset'  # 正确的数据集名称
+  data_dir: './data'
+  shuffle_seed: ${seed}
+  
+  # 从model配置继承
+  data_repr: ${model.data_repr}
+  contact_type: ${model.contact_model.contact_type}
+  contact_joints: ${model.contact_model.contact_joints}
+  
+  # 数据集特定参数
+  use_raw_dist: false
+  sigma: 0.5
+  num_points: 8192
+  min_horizon: 40
+  max_horizon: 196
+  mix_train_ratio: 0.5
+  
+  # transforms
+  train_transforms: ['NumpyToTensor']
+  test_transforms: ['NumpyToTensor']
+  transform_cfg:
+    gravity_dim: 1
+    random_mask_prob: 0.1
+    random_mask_prob_pc: 0.1
+
+# 覆盖train配置以适应PPO
+train:
+  lr: ${ppo.learning_rate}  # 使用PPO的学习率
+  batch_size: ${ppo.batch_size}  # 使用PPO的batch size
+  num_workers: ${ppo.num_workers}
+  phase: 'train'
+  resume_ckpt: ''  # PPO从AMDM checkpoint开始，不是resume
+
+# 覆盖test配置
+test:
+  batch_size: ${ppo.batch_size}
+  num_workers: 0
+  contact_folder: ''
+
+# 确保model配置正确
+model:
+  name: 'CMDM'
+  input_feats: 263
+  data_repr: 'pos'
+  
+  # CMDM必需的配置
+  time_emb_dim: 512
+  arch: 'trans_enc'
+  latent_dim: 512
+  mask_motion: true
+  num_layers: [1,1,1,1,1]
+  num_heads: 8
+  dropout: 0.1
+  dim_feedforward: 1024
+  
+  # Contact模型配置
+  contact_model:
+    contact_type: 'contact_cont_joints'
+    contact_joints: [0, 10, 11, 12, 20, 21]
+    planes: [32, 64, 128, 256]
+    num_points: 10000
+    blocks: [2, 2, 2, 2]
+  
+  # Text模型配置
+  text_model:
+    version: 'ViT-B/32'
+    max_length: 32
+
+# Diffusion配置
+diffusion:
+  steps: 1000
+  noise_schedule: 'cosine'
+  sigma_small: true
+  predict_xstart: true
+  learn_sigma: false
+  rescale_timesteps: false
+  timestep_respacing: ''
+  loss_type: 'MSE'
+
+# 可视化器配置（如果需要）
+visualizer:
+  name: 'ContactMotionVisualizer'
+  njoints: 22
+
+# 评估器配置（如果需要）
+evaluator:
+  name: 'Text2MotionInSceneHumanML3DEvaluator'
+  njoints: 22
+  k_samples: 0
+  num_k_samples: 128
+  eval_nbatch: 32
+  eval_metrics: []
+  save_results: true
