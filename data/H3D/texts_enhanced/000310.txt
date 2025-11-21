@@ -1,0 +1,3 @@
+A man walks forward with his arms bent, swinging his elbows rhythmically to the back and front.#a man walks forward with his arms bent swinging his elbows rhythmically to the back and front#0.0#0.0
+the person steps with arms raised and moving elbows back motion.#the/DET person/NOUN step/VERB with/ADP arm/NOUN raise/VERB and/CCONJ move/VERB elbow/NOUN back/ADV motion/NOUN#0.0#0.0
+a person walks forward, leaning from side to side, while rotating his shoulders so his hands move in and out.#a/DET person/NOUN walk/VERB forward/ADV lean/VERB from/ADP side/NOUN to/ADP side/VERB while/SCONJ rotate/VERB his/DET shoulder/NOUN so/SCONJ his/DET hand/NOUN move/VERB in/ADP and/CCONJ out/ADV#0.0#0.0

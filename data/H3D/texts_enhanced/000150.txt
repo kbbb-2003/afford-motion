@@ -1,0 +1,3 @@
+A person sways side to side as they take unsteady steps forward#a person sways side to side as they take unsteady steps forward#0.0#0.0
+a person walks forward, then stutters on his right leg as it appears he stepped in something.#a/DET person/NOUN walk/VERB forward/ADV then/ADV stutter/NOUN on/ADP his/DET right/ADJ leg/NOUN as/SCONJ it/PRON appear/VERB he/PRON step/VERB in/ADP something/PRON#0.0#0.0
+a person walks wobbly down an incline#a/DET person/NOUN walk/VERB wobbly/ADV down/ADP an/DET incline/NOUN#0.0#0.0

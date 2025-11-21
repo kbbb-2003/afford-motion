@@ -1,0 +1,3 @@
+A person brings their hands together in front of their body, striking their palms together in a clap#a person brings their hands together in front of their body striking their palms together in a clap#0.0#0.0
+a person claps their hands together#a/DET person/NOUN clap/VERB their/DET hand/NOUN together/ADV#0.0#0.0
+person claps on the spot#person/NOUN clap/VERB on/ADP the/DET spot/NOUN#0.0#0.0

@@ -1,0 +1,3 @@
+a person raises their right arm and performs a quick waving motion with their hand in a greet-like manner.#a person raises their right arm and performs a quick waving motion with their hand in a greetlike manner#0.0#0.0
+a person raises their right hand and waves.#a/DET person/NOUN raise/VERB their/DET right/ADJ hand/NOUN and/CCONJ wave/NOUN#0.0#0.0
+a person stands and then waves.#a/DET person/NOUN stand/VERB and/CCONJ then/ADV wave/NOUN#0.0#0.0

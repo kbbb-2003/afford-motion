@@ -1,0 +1,2 @@
+He is running from left to right, pumping his arms#he is running from left to right pumping his arms#0.0#0.0
+a person is running forward and diagonal to the left.#a/DET person/NOUN is/AUX run/VERB forward/ADV and/CCONJ diagonal/ADJ to/ADP the/DET left/NOUN#0.0#0.0

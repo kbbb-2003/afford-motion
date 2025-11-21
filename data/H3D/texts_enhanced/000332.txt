@@ -1,0 +1,3 @@
+A person lifts their knees up and down and pumps their arms while running in place.#a person lifts their knees up and down and pumps their arms while running in place#0.0#0.0
+a person is jogging on the spot.#a/DET person/NOUN is/AUX jog/VERB on/ADP the/DET spot/NOUN#0.0#0.0
+person is jogging on the spot#person/NOUN is/AUX jog/VERB on/ADP the/DET spot/NOUN#0.0#0.0

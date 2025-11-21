@@ -1,0 +1,4 @@
+A man is thrown off balance and stumbles to his right with arms flailing out to his sides.#a man is thrown off balance and stumbles to his right with arms flailing out to his sides#0.0#0.0
+a person standing loses balance falling to the right and recovers standing#a/DET person/NOUN stand/VERB lose/VERB balance/NOUN fall/VERB to/ADP the/DET right/NOUN and/CCONJ recover/NOUN stand/VERB#0.0#0.0
+a person walks to the left.#a/DET person/NOUN walk/VERB to/ADP the/DET left/NOUN#1.0#4.0
+a person stumbles to the right and recovers their balance.#a/DET person/NOUN stumble/VERB to/ADP the/DET right/NOUN and/CCONJ recover/NOUN their/DET balance/NOUN#0.0#0.0

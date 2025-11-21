@@ -1,0 +1,3 @@
+A person does jumping jacks, jumping to spread their legs out to the side while raising their arms#a person does jumping jacks jumping to spread their legs out to the side while raising their arms#0.0#0.0
+a persin is doing jumping jacks.#a/DET persin/NOUN is/AUX do/VERB jump/VERB jack/NOUN#0.0#0.0
+a person does jumping jacks for a few seconds and then stops catching their balance.#a/DET person/NOUN does/AUX jump/VERB jack/NOUN for/ADP a/DET few/ADJ second/NOUN and/CCONJ then/ADV stop/VERB catch/VERB their/DET balance/NOUN#0.0#0.0

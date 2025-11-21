@@ -1,0 +1,3 @@
+the figure takes a few slighly hurried steps without raising their arms, it looks they are about to start running but haven't quite yet begun.#the figure takes a few slighly hurried steps without raising their arms it looks they are about to start running but havent quite yet begun#0.0#0.0
+a person walks down the stairs briskly.#a/DET person/NOUN walk/VERB down/ADP the/DET stair/NOUN briskly/ADV#0.0#0.0
+he is running down then stopped and moved his left hand#he/PRON is/AUX run/VERB down/ADV then/ADV stop/VERB and/CCONJ move/VERB his/DET left/ADJ hand/NOUN#0.0#0.0

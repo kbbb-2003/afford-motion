@@ -1,0 +1,4 @@
+A man lifts his legs to walk up and then carefully steps down from either stairs, rocks#a man lifts his legs to walk up and then carefully steps down from either stairs rocks#0.0#0.0
+a person walks in a square shape while going up and down on objects.#a/DET person/NOUN walk/VERB in/ADP a/DET square/ADJ shape/NOUN while/SCONJ go/VERB up/ADV and/CCONJ down/ADP on/ADP object/NOUN#nan#nan
+a person climbs up and down steps in a square.#a/DET person/NOUN climb/VERB up/ADP and/CCONJ down/ADP step/NOUN in/ADP a/DET square/NOUN#0.0#10.0
+climb up steps with both legs#climb/VERB up/ADP step/NOUN with/ADP both/DET leg/NOUN#0.0#0.0

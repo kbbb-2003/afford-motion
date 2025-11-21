@@ -1,0 +1,2 @@
+A person walks forward, taking big steps and swinging their arms back and forth.#a person walks forward taking big steps and swinging their arms back and forth#0.0#0.0
+a blue and red stick figure walks towards black srean.#a/DET blue/ADJ and/CCONJ red/ADJ stick/NOUN figure/NOUN walk/VERB towards/ADP black/ADJ srean/PROPN#0.0#0.0

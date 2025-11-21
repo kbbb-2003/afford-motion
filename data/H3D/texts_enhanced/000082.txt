@@ -1,0 +1,3 @@
+The man appears to be dancing in a salsa style, shifting his weight from foot to foot and swaying his hips.#the man appears to be dancing in a salsa style shifting his weight from foot to foot and swaying his hips#0.0#10.0
+man dancing the salsa alone#man/NOUN dance/VERB the/DET salsa/NOUN alone/ADV#0.0#0.0
+person is doing a salsa dance#person/NOUN is/AUX do/VERB a/DET salsa/NOUN dance/NOUN#0.0#0.0

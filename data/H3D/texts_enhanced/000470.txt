@@ -1,0 +1,3 @@
+A figure steps out with their right foot, moving their body to the right.#a figure steps out with their right foot moving their body to the right#0.0#0.0
+a person steps forward once#a/DET person/NOUN step/VERB forward/ADV once/ADV#0.0#0.0
+someone stand then move to the right#someone/PRON stand/VERB then/ADV move/VERB to/ADP the/DET right/NOUN#0.0#0.0

@@ -1,0 +1,3 @@
+A man walks backwards with both hands held straight down by his#a man walks backwards with both hands held straight down by his#0.0#0.0
+a man walks straight backwards.#a/DET man/NOUN walk/VERB straight/ADV backwards/ADV#0.0#0.0
+person is walking straight backwards#person/NOUN is/AUX walk/VERB straight/ADV backwards/ADV#0.0#0.0

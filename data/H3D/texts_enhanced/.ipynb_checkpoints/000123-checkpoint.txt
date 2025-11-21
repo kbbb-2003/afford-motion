@@ -1,0 +1,3 @@
+Someone holds a cellphone in one hand and dials a number#someone holds a cellphone in one hand and dials a number#0.0#0.0
+a person hits their hands together then raises one to their head while holding something#a/DET person/NOUN hit/VERB their/DET hand/NOUN together/ADV then/ADV raise/VERB one/PRON to/ADP their/DET head/NOUN while/SCONJ hold/VERB something/PRON#0.0#0.0
+a person claps their hands together and then waves.#a/DET person/NOUN clap/VERB their/DET hand/NOUN together/ADV and/CCONJ then/ADV wave/NOUN#0.0#0.0

@@ -1,0 +1,3 @@
+A person walks forward, then pivots on their feet to turn around and walks forward in the opposite direction.#a person walks forward then pivots on their feet to turn around and walks forward in the opposite direction#0.0#0.0
+a person walking in his room thinking#a/DET person/NOUN walk/VERB in/ADP his/DET room/NOUN think/VERB#0.0#0.0
+a person is pacing the floor back and forth.#a/DET person/NOUN is/AUX pace/VERB the/DET floor/NOUN back/ADV and/CCONJ forth/ADV#0.0#0.0

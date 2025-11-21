@@ -1,0 +1,3 @@
+Someone raises their arm back and then throws a baseball forward down the plate.#someone raises their arm back and then throws a baseball forward down the plate#0.0#0.0
+a person throws something with their right arm#a/DET person/NOUN throw/VERB something/PRON with/ADP their/DET right/ADJ arm/NOUN#0.0#0.0
+the person imitates throwing something with their right hand, the movement is choppy#the/DET person/NOUN imitate/VERB throw/VERB something/PRON with/ADP their/DET right/ADJ hand/NOUN the/DET movement/NOUN is/AUX choppy/ADJ#0.0#0.0

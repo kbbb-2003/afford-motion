@@ -1,0 +1,2 @@
+a person walks in a straight diagonal line then makes a sharp turnaround at both ends of the line.#a person walks in a straight diagonal line then makes a sharp turnaround at both ends of the line#0.0#0.0
+a person paces back and forth#a/DET person/NOUN pace/VERB back/ADV and/CCONJ forth/ADV#0.0#0.0

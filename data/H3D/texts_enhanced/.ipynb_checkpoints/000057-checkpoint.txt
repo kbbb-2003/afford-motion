@@ -1,0 +1,3 @@
+The man bends his knees to lower his body and sit on the ground, then pushes himself back up to#the man bends his knees to lower his body and sit on the ground then pushes himself back up to#0.0#7.0
+person sits slowly on the floor but then stands up again#person/NOUN sit/VERB slowly/ADV on/ADP the/DET floor/NOUN but/CCONJ then/ADV stand/VERB up/ADP again/ADV#0.0#0.0
+a person sits and gets back up.#a/DET person/NOUN sit/VERB and/CCONJ get/VERB back/ADV up/ADV#0.0#0.0

@@ -1,0 +1,3 @@
+A person is standing upright and bringing their hands together in a clapping motion.#a person is standing upright and bringing their hands together in a clapping motion#0.0#0.0
+a person claps their hands together#a/DET person/NOUN clap/VERB their/DET hand/NOUN together/ADV#0.0#0.0
+someone stands still and claps with their hands in front of their torso.#someone/PRON stand/VERB still/ADV and/CCONJ clap/NOUN with/ADP their/DET hand/NOUN in/ADP front/NOUN of/ADP their/DET torso/NOUN#nan#nan

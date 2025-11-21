@@ -1,0 +1,3 @@
+A person extends their right arm forward in a punch before turning their body in a counterclockwise spin.#a person extends their right arm forward in a punch before turning their body in a counterclockwise spin#0.0#5.0
+a person punches their first forward, then spins around#a/DET person/NOUN punch/VERB their/DET first/ADJ forward/ADV then/ADV spin/VERB around/ADV#0.0#0.0
+the person steps back, takes a solid stance and spins toward his left, then walks back to the original position.#the/DET person/NOUN step/VERB back/ADV take/VERB a/DET solid/ADJ stance/NOUN and/CCONJ spin/VERB toward/ADP his/DET left/NOUN then/ADV walk/VERB back/ADV to/ADP the/DET original/ADJ position/NOUN#0.0#0.0

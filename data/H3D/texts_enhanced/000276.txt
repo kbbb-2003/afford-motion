@@ -1,0 +1,3 @@
+He walked straight forward and pointed at something with his right index finger and then turned his body back#he walked straight forward and pointed at something with his right index finger and then turned his body back#0.0#0.0
+a man walks forward knocks on a door and after waiting a brief period walks away.#a/DET man/NOUN walk/VERB forward/ADV knock/VERB on/ADP a/DET door/NOUN and/CCONJ after/ADP wait/VERB a/DET brief/ADJ period/NOUN walk/VERB away/ADV#0.0#0.0
+a person walks forward, stops and shakes right wrist then turns around and walks away.#a/DET person/NOUN walk/VERB forward/ADV stop/NOUN and/CCONJ shake/VERB right/ADJ wrist/NOUN then/ADV turn/VERB around/ADV and/CCONJ walk/VERB away/ADV#0.0#0.0

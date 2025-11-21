@@ -1,0 +1,3 @@
+A person stands in place with arms bent, clapping their hands together in front of their body.#a person stands in place with arms bent clapping their hands together in front of their body#0.0#0.0
+a person claps their hands together, stops, then starts again#a/DET person/NOUN clap/VERB their/DET hand/NOUN together/ADV stop/VERB then/ADV start/VERB again/ADV#0.0#0.0
+a person claps their hands in front of them and then puts them back down.#a/DET person/NOUN clap/VERB their/DET hand/NOUN in/ADP front/NOUN of/ADP them/PRON and/CCONJ then/ADV put/VERB them/PRON back/ADV down/ADP#0.0#0.0

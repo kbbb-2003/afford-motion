@@ -1,0 +1,3 @@
+A man shifts his weight and leans his upper body to his left, then straightens his torso#a man shifts his weight and leans his upper body to his left then straightens his torso#0.0#0.0
+a person walks forward slowly.#a/DET person/NOUN walk/VERB forward/ADV slowly/ADV#0.0#0.0
+person walks forwards casually with arms slightly swinging.#person/NOUN walk/VERB forwards/ADV casually/ADV with/ADP arm/NOUN slightly/ADV swinge/VERB#0.0#0.0

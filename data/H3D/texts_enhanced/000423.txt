@@ -1,0 +1,3 @@
+A person quickly jumps their feet out to the side while raising their arms overhead and then jumps#a person quickly jumps their feet out to the side while raising their arms overhead and then jumps#0.0#0.0
+a person is doing many jumping jacks.#a/DET person/NOUN is/AUX do/VERB many/ADJ jump/VERB jack/NOUN#0.0#0.0
+a person is doing standing jumping jacks.#a/DET person/NOUN is/AUX do/VERB stand/VERB jumping/NOUN jack/NOUN#0.0#0.0

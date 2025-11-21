@@ -1,0 +1,3 @@
+A person is jogging with their arms bent at the elbows, alternating their right foot and left hand moving#a person is jogging with their arms bent at the elbows alternating their right foot and left hand moving#0.0#0.0
+a person jogs in one place.#a/DET person/NOUN jog/VERB in/ADP one/NUM place/NOUN#0.0#0.0
+a person is jogging in place.#a/DET person/NOUN is/AUX jog/VERB in/ADP place/NOUN#0.0#0.0

@@ -1,0 +1,3 @@
+A person raises their right arm and leans to the left, then brings their left arm up#a person raises their right arm and leans to the left then brings their left arm up#0.0#0.0
+person is stretching by putting their right arm over their head and bending their body to their right and vice versa#person/NOUN is/AUX stretch/VERB by/ADP put/VERB their/DET right/ADJ arm/NOUN over/ADP their/DET head/NOUN and/CCONJ bend/VERB their/DET body/NOUN to/ADP their/DET right/NOUN and/CCONJ vice/NOUN versa/ADV#0.0#0.0
+a person stretches to one side with their arm over their head, then stretches to the other side#a/DET person/NOUN stretch/VERB to/ADP one/NUM side/NOUN with/ADP their/DET arm/NOUN over/ADP their/DET head/NOUN then/ADV stretch/VERB to/ADP the/DET other/ADJ side/NOUN#0.0#0.0

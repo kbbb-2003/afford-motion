@@ -1,0 +1,3 @@
+A person bends their knees in a small dip and then pushes off the ground for a two legged#a person bends their knees in a small dip and then pushes off the ground for a two legged#0.0#0.0
+person jumps once on the spot#person/NOUN jump/VERB once/ADV on/ADP the/DET spot/NOUN#0.0#0.0
+i see someone jump up once#i/PRON see/VERB someone/PRON jump/VERB up/ADP once/ADV#0.0#0.0

@@ -1,0 +1,3 @@
+A person raises their right arm and moves their hand back and forth from the wrist.#a person raises their right arm and moves their hand back and forth from the wrist#0.0#0.0
+person uses their right arm to wave#person/NOUN use/VERB their/DET right/ADJ arm/NOUN to/PART wave/VERB#0.0#0.0
+person waving their right hand.#person/NOUN wave/VERB their/DET right/ADJ hand/NOUN#0.0#0.0

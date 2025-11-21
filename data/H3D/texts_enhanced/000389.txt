@@ -1,0 +1,3 @@
+a standing man loses a little bit of balance and his upper body leans and shakes toward his left.#a standing man loses a little bit of balance and his upper body leans and shakes toward his left#0.0#0.0
+a person standing waiting for the train#a/DET person/NOUN stand/VERB wait/VERB for/ADP the/DET train/NOUN#0.0#0.0
+a person stands still and then moved shoulders back as if they were pushed.#a/DET person/NOUN stand/VERB still/ADV and/CCONJ then/ADV move/VERB shoulder/NOUN back/ADV as/SCONJ if/SCONJ they/PRON were/AUX push/VERB#0.0#0.0

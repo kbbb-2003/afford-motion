@@ -1,0 +1,3 @@
+With arms bent at the elbows and hands near the hips,#with arms bent at the elbows and hands near the hips#0.0#0.0
+a person squats very slightly.#a/DET person/NOUN squat/VERB very/ADV slightly/ADV#0.0#0.0
+someone bounces up and down with their arms to the side and elbows slightly bent.#someone/PRON bounce/VERB up/ADV and/CCONJ down/ADV with/ADP their/DET arm/NOUN to/ADP the/DET side/NOUN and/CCONJ elbow/VERB slightly/ADV bent/ADJ#0.0#0.0

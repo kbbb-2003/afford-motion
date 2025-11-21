@@ -1,0 +1,2 @@
+A person walks to the right by placing their left foot forward and then their right foot#a person walks to the right by placing their left foot forward and then their right foot#0.0#0.0
+a person starts out walking straight and then turns slightly right.#a/DET person/NOUN start/VERB out/ADP walk/VERB straight/ADV and/CCONJ then/ADV turn/VERB slightly/ADV right/ADJ#0.0#0.0

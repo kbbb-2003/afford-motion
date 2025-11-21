@@ -1,0 +1,3 @@
+A person walks quickly and intentionally in a zig-zag pattern forward by planting one foot#a person walks quickly and intentionally in a zigzag pattern forward by planting one foot#0.0#0.0
+someones walks forward in a side to side pattern.#someone/NOUN walk/VERB forward/ADV in/ADP a/DET side/NOUN to/PART side/NOUN pattern/NOUN#0.0#0.0
+walking from left to right to left then back to right#walk/VERB from/ADP left/VERB to/ADP right/NOUN to/PART left/VERB then/ADV back/ADV to/ADP right/ADJ#0.0#0.0

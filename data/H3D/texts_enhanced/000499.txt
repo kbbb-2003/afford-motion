@@ -1,0 +1,3 @@
+A person bends their knees to jump over something while rotating their wrists outward and inward.#a person bends their knees to jump over something while rotating their wrists outward and inward#0.0#0.0
+a person is skipping with a rope#a/DET person/NOUN is/AUX skip/VERB with/ADP a/DET rope/NOUN#0.0#0.0
+person is skipping on the spot#person/NOUN is/AUX skip/VERB on/ADP the/DET spot/NOUN#0.0#0.0

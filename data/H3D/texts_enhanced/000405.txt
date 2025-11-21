@@ -1,0 +1,3 @@
+A person lifts both arms up slightly from their sides.#a person lifts both arms up slightly from their sides#0.0#0.0
+a person is picking up both hands to shoulder height repeatedly.#a/DET person/NOUN is/AUX pick/VERB up/ADP both/DET hand/NOUN to/PART shoulder/VERB height/ADV repeatedly/ADV#0.0#0.0
+somebody weightlifting at the gym#somebody/PRON weightlift/VERB at/ADP the/DET gym/NOUN#0.0#0.0

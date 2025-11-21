@@ -1,0 +1,3 @@
+A person walks forward while turning their body to complete a full circle#a person walks forward while turning their body to complete a full circle#0.0#0.0
+a person walks counter-clock wise circle.#a/DET person/NOUN walk/VERB counterclock/VERB wise/ADJ circle/NOUN#0.0#7.0
+a person walks counterclockwise slightly swinging their arms.#a/DET person/NOUN walk/VERB counterclockwise/VERB slightly/ADV swinge/VERB their/DET arm/NOUN#0.0#0.0

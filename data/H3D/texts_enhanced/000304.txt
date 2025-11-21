@@ -1,0 +1,3 @@
+A person is walking in a steady forward motion, alternating their legs and swinging their arms.#a person is walking in a steady forward motion alternating their legs and swinging their arms#0.0#0.0
+a person walks forward in a normal fashion#a/DET person/NOUN walk/VERB forward/ADV in/ADP a/DET normal/ADJ fashion/NOUN#0.0#0.0
+a person walks slowly on a treadmill#a/DET person/NOUN walk/VERB slowly/ADV on/ADP a/DET treadmill/NOUN#0.0#0.0

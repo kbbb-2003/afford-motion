@@ -1,0 +1,3 @@
+Someone stands with their body turned to the side and throws something by swinging their right arm forward.#someone stands with their body turned to the side and throws something by swinging their right arm forward#0.0#0.0
+a person is playing tennis#a/DET person/NOUN is/AUX play/VERB tennis/NOUN#0.0#0.0
+the figure twists its torso, extends its arm back, and makes a throwing gesture#the/DET figure/NOUN twist/VERB its/DET torso/NOUN extend/VERB its/DET arm/NOUN back/ADV and/CCONJ make/VERB a/DET throwing/NOUN gesture/NOUN#0.0#0.0

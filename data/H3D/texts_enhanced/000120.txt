@@ -1,0 +1,3 @@
+The figure appears to be ballroom dancing by themselves with their hands#the figure appears to be ballroom dancing by themselves with their hands#0.0#0.0
+someone lowers their arms and begins to dance by shuffling their feet in a square pattern.#someone/PRON lower/VERB their/DET arm/NOUN and/CCONJ begin/VERB to/PART dance/VERB by/ADP shuffle/VERB their/DET foot/NOUN in/ADP a/DET square/ADJ pattern/NOUN#0.0#0.0
+person walks up then shifts to the left then steps back and shifts to the right then repeats twice the faces their right#person/NOUN walk/VERB up/ADP then/ADV shift/VERB to/ADP the/DET left/NOUN then/ADV step/VERB back/ADV and/CCONJ shift/VERB to/ADP the/DET right/NOUN then/ADV repeat/VERB twice/DET the/DET face/NOUN their/DET right/NOUN#0.0#0.0

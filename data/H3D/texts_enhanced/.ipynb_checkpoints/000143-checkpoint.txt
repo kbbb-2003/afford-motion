@@ -1,0 +1,3 @@
+Someone jumps up and down with their elbows bent and arms#someone jumps up and down with their elbows bent and arms#0.0#0.0
+a person jumps up and down while standing in place with both arms above waste and bent at the elbow#a/DET person/NOUN jump/VERB up/ADV and/CCONJ down/ADV while/SCONJ stand/VERB in/ADP place/NOUN with/ADP both/DET arm/NOUN above/ADP waste/NOUN and/CCONJ bent/NOUN at/ADP the/DET elbow/NOUN#0.0#0.0
+the figure bends its knees, moves its arms, and jumps two times#the/DET figure/NOUN bend/VERB its/DET knee/NOUN move/VERB its/DET arm/NOUN and/CCONJ jump/VERB two/NUM time/NOUN#0.0#0.0

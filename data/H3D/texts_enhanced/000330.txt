@@ -1,0 +1,3 @@
+A person steps up onto a beam with one foot, then carefully walks across it, then walks down.#a person steps up onto a beam with one foot then carefully walks across it then walks down#0.0#0.0
+a person steps up, walks forward, then steps down#a/DET person/NOUN step/VERB up/ADP walk/VERB forward/ADV then/ADV step/VERB down/ADV#0.0#0.0
+a person is walking forward on a platform and then steps down#a/DET person/NOUN is/AUX walk/VERB forward/ADV on/ADP a/DET platform/NOUN and/CCONJ then/ADV step/VERB down/ADV#0.0#0.0

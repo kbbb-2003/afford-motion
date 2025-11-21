@@ -1,0 +1,2 @@
+Someone staggers forwards and to the left, then reaches out and puts their right arm on an object.#someone staggers forwards and to the left then reaches out and puts their right arm on an object#0.0#0.0
+person walks slowly like it pain and uses something to help keep balance#person/NOUN walk/VERB slowly/ADV like/SCONJ it/PRON pain/VERB and/CCONJ use/VERB something/PRON to/PART help/VERB keep/VERB balance/NOUN#0.0#0.0
