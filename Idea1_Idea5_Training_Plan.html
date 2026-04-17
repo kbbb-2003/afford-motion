@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Afford-Motion Idea 1 + Idea 5 训练与实验清单</title>
+  <style>
+    body {
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+      margin: 36px;
+      color: #222;
+    }
+    h1, h2, h3 {
+      color: #16324f;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 18px;
+      margin-top: 24px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #d7dde5;
+      padding-bottom: 4px;
+    }
+    h3 {
+      font-size: 15px;
+      margin-top: 18px;
+      margin-bottom: 6px;
+    }
+    p, li {
+      font-size: 12px;
+    }
+    code, pre {
+      font-family: Menlo, Consolas, monospace;
+      font-size: 11px;
+    }
+    pre {
+      background: #f5f7fa;
+      border: 1px solid #e2e8f0;
+      padding: 10px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .note {
+      background: #fff8e6;
+      border: 1px solid #f0d98a;
+      padding: 10px 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Afford-Motion：Idea 1 + Idea 5 训练与实验清单</h1>
+  <p>适用代码版本：当前已实现 Idea 1（Temporal Affordance Sequence）与 Idea 5（Contact-Consistent Diffusion Loss）的本地项目。</p>
+
+  <h2>一、当前项目整体流程</h2>
+  <ol>
+    <li>重新生成 contact 数据，得到 temporal affordance 的 <code>dist_seq</code>。</li>
+    <li>训练第一阶段 ADM，使其学习 4 段 temporal affordance。</li>
+    <li>使用 ADM 预生成 affordance maps，供第二阶段测试使用。</li>
+    <li>训练第二阶段 AMDM，同时打开 Idea 1 和 Idea 5。</li>
+    <li>用第二阶段模型生成 motion，并做评测。</li>
+  </ol>
+
+  <div class="note">
+    <strong>注意：</strong>
+    <ul>
+      <li>Idea 1 会改变 ADM 和 AMDM 的条件表示，所以两个阶段都需要重新训练。</li>
+      <li>Idea 5 只作用在第二阶段训练损失，不改 ADM。</li>
+      <li>建议先跑 short-run 版本确认方向正确，再考虑 full run。</li>
+    </ul>
+  </div>
+
+  <h2>二、step 的含义</h2>
+  <p><strong>step</strong> 指的是一次参数更新，也就是一个 batch 前向、反向传播、优化器更新完成后记 1 次。它不是 epoch。</p>
+  <ul>
+    <li>单卡时：1 step 约等于看 1 个 batch 的样本。</li>
+    <li>多卡时：1 step 的全局有效 batch 约等于 <code>batch_size × GPU 数</code>。</li>
+    <li>step 更高通常更容易收敛，但不是越高越一定更好，关键还是看 loss、采样质量和评测指标。</li>
+  </ul>
+
+  <h2>三、推荐的 short-run 实验方案</h2>
+  <p>目标：先验证两个 idea 是否真的带来正向变化，而不是一开始就跑到官方默认满步数。</p>
+
+  <h3>1. HumanML3D 推荐步数</h3>
+  <ul>
+    <li>ADM：先跑 50k steps</li>
+    <li>AMDM：先跑 50k steps</li>
+    <li>如果这轮结果方向明显变好，再把 AMDM 拉到 100k steps 做第二轮对比</li>
+  </ul>
+
+  <h3>2. HUMANISE 推荐步数</h3>
+  <ul>
+    <li>ADM：先跑 30k steps</li>
+    <li>AMDM：先跑 50k steps</li>
+    <li>如果这轮趋势稳定，再考虑把 AMDM 提到 80k steps</li>
+  </ul>
+
+  <h3>3. 为什么不建议一上来 full run</h3>
+  <ul>
+    <li>Idea 1 + Idea 5 同时引入后，最需要先确认的是代码链路、loss 稳定性、样本几何质量。</li>
+    <li>Idea 5 中的 penetration loss 会显著增加第二阶段训练时间。</li>
+    <li>如果 10k 到 50k steps 已经看不到正向趋势，就没必要马上投入数天时间跑满。</li>
+  </ul>
+
+  <h2>四、HumanML3D 实验清单</h2>
+
+  <h3>1. 重新生成 temporal contact 数据</h3>
+  <pre>python prepare/generate_contact_data.py --random_segment</pre>
+
+  <h3>2. 可选：做 temporal affordance shape 检查</h3>
+  <pre>python scripts/check_temporal_affordance_shapes.py</pre>
+
+  <h3>3. 训练 ADM（Idea 1）- 50k steps</h3>
+  <pre>python train.py hydra/job_logging=none hydra/hydra_logging=none \
+  exp_name=IDEA1_ADM_H3D_50K \
+  output_dir=outputs \
+  platform=TensorBoard \
+  diffusion.steps=500 \
+  task=text_to_motion_contact_gen \
+  task.dataset.sigma=0.8 \
+  task.dataset.temporal_affordance=true \
+  task.dataset.num_phases=4 \
+  task.train.batch_size=64 \
+  task.train.max_steps=50000 \
+  task.train.save_every_step=10000 \
+  model=cdm \
+  model.arch=Perceiver \
+  model.scene_model.use_scene_model=False \
+  model.text_model.max_length=20</pre>
+
+  <h3>4. 用 ADM 预生成 temporal affordance maps</h3>
+  <pre>python test.py hydra/job_logging=none hydra/hydra_logging=none \
+  exp_dir=outputs/IDEA1_ADM_H3D_50K \
+  seed=2023 \
+  output_dir=outputs \
+  diffusion.steps=500 \
+  task=text_to_motion_contact_gen \
+  task.dataset.sigma=0.8 \
+  task.dataset.temporal_affordance=true \
+  task.dataset.num_phases=4 \
+  task.evaluator.k_samples=0 \
+  task.evaluator.eval_nbatch=32 \
+  task.evaluator.num_k_samples=128 \
+  model=cdm \
+  model.arch=Perceiver \
+  model.scene_model.use_scene_model=False \
+  model.text_model.max_length=20</pre>
+
+  <h3>5. 训练 AMDM（Idea 1 + Idea 5）- 50k steps</h3>
+  <pre>python train.py hydra/job_logging=none hydra/hydra_logging=none \
+  exp_name=IDEA15_AMDM_H3D_50K \
+  output_dir=outputs \
+  platform=TensorBoard \
+  diffusion.steps=1000 \
+  task=text_to_motion_contact_motion_gen \
+  task.dataset.sigma=0.8 \
+  task.dataset.temporal_affordance=true \
+  task.dataset.num_phases=4 \
+  task.dataset.mix_train_ratio=0.0 \
+  task.train.batch_size=32 \
+  task.train.max_steps=50000 \
+  task.train.save_every_step=10000 \
+  task.dataset.train_transforms=['RandomEraseLang','RandomEraseContact','NumpyToTensor'] \
+  model=cmdm \
+  model.arch=trans_enc \
+  model.data_repr=h3d \
+  model.text_model.max_length=20 \
+  model.geometry_loss.enable=true</pre>
+
+  <h3>6. 生成 motion</h3>
+  <p>把下面命令中的 <code>outputs/IDEA1_ADM_H3D_50K/eval/test-xxxxxx</code> 替换为你实际得到的 affordance 目录。</p>
+  <pre>python test.py hydra/job_logging=none hydra/hydra_logging=none \
+  exp_dir=outputs/IDEA15_AMDM_H3D_50K \
+  seed=2023 \
+  output_dir=outputs \
+  diffusion.steps=1000 \
+  task=text_to_motion_contact_motion_gen \
+  task.dataset.sigma=0.8 \
+  task.dataset.temporal_affordance=true \
+  task.dataset.num_phases=4 \
+  task.test.contact_folder=outputs/IDEA1_ADM_H3D_50K/eval/test-xxxxxx \
+  task.evaluator.k_samples=0 \
+  task.evaluator.eval_nbatch=32 \
+  task.evaluator.num_k_samples=128 \
+  model=cmdm \
+  model.arch=trans_enc \
+  model.data_repr=h3d \
+  model.text_model.max_length=20</pre>
+
+  <h2>五、HUMANISE 实验清单</h2>
+
+  <h3>1. 重新生成 temporal contact 数据</h3>
+  <pre>python prepare/generate_contact_data.py --random_segment</pre>
+
+  <h3>2. 可选：做 temporal affordance shape 检查</h3>
+  <pre>python scripts/check_temporal_affordance_shapes.py</pre>
+
+  <h3>3. 训练 ADM（Idea 1）- 30k steps</h3>
+  <pre>python train.py hydra/job_logging=none hydra/hydra_logging=none \
+  exp_name=IDEA1_ADM_HUMANISE_30K \
+  output_dir=outputs \
+  platform=TensorBoard \
+  diffusion.steps=500 \
+  task=contact_gen \
+  task.train.phase=train \
+  task.dataset.sets=["HUMANISE"] \
+  task.dataset.sigma=0.8 \
+  task.dataset.temporal_affordance=true \
+  task.dataset.num_phases=4 \
+  task.train.batch_size=64 \
+  task.train.max_steps=30000 \
+  task.train.save_every_step=10000 \
+  model=cdm \
+  model.arch=Perceiver</pre>
+
+  <h3>4. 用 ADM 预生成 temporal affordance maps</h3>
+  <pre>python test.py hydra/job_logging=none hydra/hydra_logging=none \
+  exp_dir=outputs/IDEA1_ADM_HUMANISE_30K \
+  seed=2023 \
+  output_dir=outputs \
+  diffusion.steps=500 \
+  task=contact_gen \
+  task.train.phase=train \
+  task.dataset.sets=["HUMANISE"] \
+  task.dataset.sigma=0.8 \
+  task.dataset.temporal_affordance=true \
+  task.dataset.num_phases=4 \
+  model=cdm \
+  model.arch=Perceiver</pre>
+
+  <h3>5. 训练 AMDM（Idea 1 + Idea 5）- 50k steps</h3>
+  <pre>python train.py hydra/job_logging=none hydra/hydra_logging=none \
+  exp_name=IDEA15_AMDM_HUMANISE_50K \
+  output_dir=outputs \
+  platform=TensorBoard \
+  diffusion.steps=500 \
+  task=contact_motion_gen \
+  task.train.phase=train \
+  task.dataset.sets=["HUMANISE"] \
+  task.dataset.sigma=0.8 \
+  task.dataset.temporal_affordance=true \
+  task.dataset.num_phases=4 \
+  task.dataset.mix_train_ratio=0.0 \
+  task.train.batch_size=32 \
+  task.train.max_steps=50000 \
+  task.train.save_every_step=10000 \
+  task.dataset.train_transforms=['RandomRotation','ApplyTransformCMDM','RandomMaskLang','NumpyToTensor'] \
+  model=cmdm \
+  model.arch=trans_enc \
+  model.time_emb_dim=128 \
+  model.geometry_loss.enable=true</pre>
+
+  <h3>6. 生成 motion</h3>
+  <p>把下面命令中的 <code>outputs/IDEA1_ADM_HUMANISE_30K/eval/test-xxxxxx</code> 替换为你实际得到的 affordance 目录。</p>
+  <pre>python test.py hydra/job_logging=none hydra/hydra_logging=none \
+  exp_dir=outputs/IDEA15_AMDM_HUMANISE_50K \
+  seed=2023 \
+  output_dir=outputs \
+  diffusion.steps=500 \
+  task=contact_motion_gen \
+  task.train.phase=train \
+  task.dataset.sets=["HUMANISE"] \
+  task.dataset.sigma=0.8 \
+  task.dataset.temporal_affordance=true \
+  task.dataset.num_phases=4 \
+  task.test.contact_folder=outputs/IDEA1_ADM_HUMANISE_30K/eval/test-xxxxxx \
+  model=cmdm \
+  model.arch=trans_enc \
+  model.time_emb_dim=128</pre>
+
+  <h2>六、最应该关注的参数</h2>
+
+  <h3>1. Idea 1 相关参数</h3>
+  <ul>
+    <li><code>task.dataset.temporal_affordance=true</code>：必须打开，否则会退回 static affordance。</li>
+    <li><code>task.dataset.num_phases=4</code>：当前实现固定为 4 段。</li>
+  </ul>
+
+  <h3>2. Idea 5 相关参数</h3>
+  <ul>
+    <li><code>model.geometry_loss.enable=true</code>：第二阶段训练必须打开。</li>
+    <li><code>model.geometry_loss.lambda_contact</code>：contact loss 权重。</li>
+    <li><code>model.geometry_loss.lambda_pen</code>：penetration loss 权重。</li>
+    <li><code>model.geometry_loss.contact_sigma</code>：GT contact soft weight 的衰减尺度。</li>
+    <li><code>model.geometry_loss.contact_threshold</code>：硬阈值过滤，控制哪些 GT joint/frame 被看作接触候选。</li>
+    <li><code>model.geometry_loss.contact_num_frames</code>：contact loss 采样帧数。</li>
+    <li><code>model.geometry_loss.pen_num_frames</code>：penetration loss 采样帧数。</li>
+    <li><code>model.geometry_loss.pen_num_scene_points</code>：penetration loss 采样 scene 点数。</li>
+  </ul>
+
+  <h3>3. 第二阶段训练稳定性相关参数</h3>
+  <ul>
+    <li><code>task.dataset.mix_train_ratio=0.0</code>：建议 short-run 先固定为 0，避免额外 train-test gap 干扰。</li>
+    <li><code>task.train.max_steps</code>：先跑短周期观察趋势。</li>
+    <li><code>task.train.batch_size</code>：显存不够时优先调它。</li>
+  </ul>
+
+  <h2>七、训练时优先观察什么</h2>
+  <ol>
+    <li><strong>loss 是否稳定</strong>：重点看 <code>mse</code>、<code>contact_loss</code>、<code>penetration_loss</code> 是否为正常数值，是否突然爆炸或变成 NaN。</li>
+    <li><strong>aux loss 是否压过 mse</strong>：如果 <code>contact_loss</code> 或 <code>penetration_loss</code> 太大，可能会让动作变僵、保守。</li>
+    <li><strong>可视化样本是否更贴场景</strong>：看是否更少穿模、接触位置更合理。</li>
+    <li><strong>HumanML3D 上的文本动作自然性</strong>：几何更好不一定代表动作更自然，需要一起看。</li>
+    <li><strong>HUMANISE 上的 scene interaction</strong>：这个数据集更容易体现 geometry-aware loss 的收益。</li>
+  </ol>
+
+  <h2>八、我最建议的第一轮实验重点</h2>
+  <ul>
+    <li>先跑 HumanML3D 50k / 50k，确认主链路与 loss 稳定性。</li>
+    <li>再跑 HUMANISE 30k / 50k，观察 contact 与 non-collision 是否更明显变好。</li>
+    <li>只有当 short-run 已经看到正向趋势时，再考虑把 AMDM 拉到 80k、100k 甚至 full run。</li>
+  </ul>
+
+  <h2>九、结论</h2>
+  <p>在当前代码实现下，最值得优先验证的是：</p>
+  <ul>
+    <li>Idea 1 是否让第二阶段获得更细的时序接触先验；</li>
+    <li>Idea 5 是否让生成动作在接触与穿模方面明显更合理。</li>
+  </ul>
+  <p>就实验策略而言，先做 short-run 再决定是否 full run，是目前最节省时间、最稳妥的方案。</p>
+</body>
+</html>

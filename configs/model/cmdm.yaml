@@ -1,0 +1,50 @@
+name: CMDM
+
+## modeling space
+input_feats: -1
+data_repr: 'pos'
+
+## time embedding
+time_emb_dim: 512
+
+## conditions
+## 1. contact
+contact_model:
+  contact_type: 'contact_cont_joints' # ['contact_one_joints', 'contact_all_joints', 'contact_cont_joints', 'contact_pelvis']
+  contact_joints: [0, 10, 11, 12, 20, 21]
+  temporal_affordance: ${task.dataset.temporal_affordance}
+  num_phases: ${task.dataset.num_phases}
+
+  planes: [32, 64, 128, 256]
+  num_points: ${task.dataset.num_points}
+  blocks: [2, 2, 2, 2]
+
+## 2. text
+text_model:
+  version: 'ViT-B/32'
+  max_length: 32
+
+## model architecture
+arch: 'trans_enc'
+latent_dim: 512
+mask_motion: true
+num_layers: [1,1,1,1,1]
+num_heads: 8
+dropout: 0.1
+dim_feedforward: 1024
+
+## geometry-aware losses (Idea 5 MVP)
+geometry_loss:
+  enable: false
+  lambda_pen: 0.05
+  lambda_contact: 0.05
+
+  pen_num_frames: 4
+  pen_num_scene_points: 256
+
+  contact_num_frames: 8
+  contact_threshold: 0.08
+  contact_sigma: 0.04
+  contact_joints: ${.contact_model.contact_joints}
+
+  joints_to_smplx_model_weights: './utils/joints_to_smplx/060.pt'
